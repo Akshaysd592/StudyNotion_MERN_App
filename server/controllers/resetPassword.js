@@ -25,7 +25,8 @@ exports.resetPasswordToken = async (req, res) => {
     console.log("DETAILS", updatedDetails)
 
     // const url = `http://localhost:3000/update-password/${token}`
-    const url = `https://studynotion-edtech-project.vercel.app/update-password/${token}`
+    https://study-notion-mern-app.vercel.app
+    const url = `https://study-notion-mern-app.vercel.app/update-password/${token}`
 
     await mailSender(
       email,
@@ -64,7 +65,7 @@ exports.resetPassword = async (req, res) => {
         message: "Token is Invalid",
       })
     }
-    if (!(userDetails.resetPasswordExpires > Date.now())) {
+    if (!(userDetails.resetPasswordExpires < Date.now())) {
       return res.status(403).json({
         success: false,
         message: `Token is Expired, Please Regenerate Your Token`,
